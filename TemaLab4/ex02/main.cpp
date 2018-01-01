@@ -23,61 +23,47 @@ class Product
 		float getPrice();
 		string getBarcode();
 		
-		Product();
-		Product(string t, string n);
-		Product(string t,string n,float p);
-		Product(string t, string n, string b,float p) ;
-
-	friend bool ComparePrices(Product p1, Product p2);
-};
-
-class DiscountedProduct:public Product
-{
-	float discount;
-
-	public:
-		DiscountedProduct(string t, string n, string b, float p,float d):
-		Product( t, n, p, b);
-//(string t, string n, string b,float p) 
-};
-//constructors
-DiscountedProduct::DiscountedProduct( (string t, string n, string b,float p, float d):
-		Product( t, n,b, p)
-{	
-	discount = d;
-}
-DiscountedProduct::DiscountedProduct(): Product()
-{
-	discount = 0;
-}
-Product::Product()
-{
-	product_type = "Universal";
+		Product()
+        {	product_type = "Universal";
 	product_name = "Anything";
 	price = 0;	
-}
-
-Product::Product(string t, string n)
+        }
+		Product(string t, string n)
 {
 	product_type = t;
 	product_name = n;
 	price = 0;
 }
 
-Product::Product(string t, string n, float p)
+		Product(string t,string n,float p)
 {
 	product_type = t;
 	product_name = n;
 	price = p;
 }
 
-Product::Product(string t, string n, float p, string b)
+		Product(string t, string n, string b,float p)
 {
 	product_type = t;
 	product_name = n;
 	price = p;
 	barcode = b;
 }
+
+
+
+	friend bool ComparePrices(Product p1, Product p2);
+};
+class DiscountedProduct:public Product
+{
+	float discount;
+
+	public:
+		DiscountedProduct(string t, string n, string b, float p,float d):
+		Product( t, n,b, p){
+            discount = d;
+        }
+};
 //setters
 void Product::setProductType(string type)
 { 
